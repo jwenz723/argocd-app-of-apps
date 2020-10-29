@@ -1,0 +1,19 @@
+# account is the unique name used to identify the account
+account: account1
+
+# region is the name of the region which this chart is deployed into
+region: region1
+
+# gocolorEnvColor is the color that will be set on the gocolor app
+gocolorEnvColor: red
+
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    targetRevision:
+      helm-application: HEAD
+      jsonnet-application: HEAD
+      kustomize-application: HEAD
+      native-application: HEAD
+

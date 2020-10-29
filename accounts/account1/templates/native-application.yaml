@@ -1,0 +1,20 @@
+# This will load the contents of k8s/native into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-native
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/gocolor.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: k8s/native
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
