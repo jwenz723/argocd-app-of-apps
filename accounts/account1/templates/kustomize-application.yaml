@@ -13,7 +13,7 @@ spec:
       prune: true
   source:
     repoURL: https://github.com/jwenz723/gocolor.git
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    targetRevision: {{ .Values.spec.source.targetRevision.kustomizeApplication }}
     path: k8s/kustomize
     kustomize:
       nameSuffix: -kustomize

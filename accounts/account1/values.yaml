@@ -12,8 +12,8 @@ spec:
     server: https://kubernetes.default.svc
   source:
     targetRevision:
-      helm-application: HEAD
-      jsonnet-application: HEAD
-      kustomize-application: HEAD
-      native-application: HEAD
+      helmApplication: HEAD
+      jsonnetApplication: HEAD
+      kustomizeApplication: HEAD
+      nativeApplication: HEAD
 

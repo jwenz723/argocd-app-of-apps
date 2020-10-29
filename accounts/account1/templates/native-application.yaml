@@ -13,7 +13,7 @@ spec:
       prune: true
   source:
     repoURL: https://github.com/jwenz723/gocolor.git
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    targetRevision: {{ .Values.spec.source.targetRevision.nativeApplication }}
     path: k8s/native
   destination:
     server: https://kubernetes.default.svc
