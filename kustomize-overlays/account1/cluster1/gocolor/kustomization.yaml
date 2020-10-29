@@ -1,0 +1,5 @@
+resources:
+  - github.com/jwenz723/gocolor//k8s/kustomize?ref=main
+
+patchesStrategicMerge:
+  - gocolor-env-patch.yaml

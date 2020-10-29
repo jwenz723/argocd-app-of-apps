@@ -1,0 +1,113 @@
+---
+# Source: applications/templates/helm-application.yaml
+# This will load the contents of k8s/helm into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-helm
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/gocolor.git
+    targetRevision: HEAD
+    path: k8s/helm
+    helm:
+      parameters:
+        - name: gocolorEnv.account
+          value: account1
+        - name: gocolorEnv.color
+          value: red
+        - name: gocolorEnv.region
+          value: region1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+---
+# Source: applications/templates/jsonnet-application.yaml
+# This will load the contents of k8s/jsonnet/main into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-jsonnet
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/gocolor.git
+    targetRevision: HEAD
+    path: k8s/jsonnet/main
+    directory:
+      jsonnet:
+        libs:
+          - k8s/jsonnet/vendor
+        tlas:
+          - name: name
+            value: "gocolor-jsonnet"
+          - name: account
+            value: account1
+          - name: color
+            value: red
+          - name: region
+            value: region1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+---
+# Source: applications/templates/kustomize-application.yaml
+# This will load the contents of k8s/helm into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-kustomize
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/argocd-app-of-apps.git
+    targetRevision: HEAD
+    path: kustomize-overlays/account1/cluster1/gocolor
+    kustomize:
+      nameSuffix: -kustomize
+      commonLabels:
+        app.kubernetes.io/name: gocolor-kustomize
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+---
+# Source: applications/templates/native-application.yaml
+# This will load the contents of k8s/native into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-native
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/gocolor.git
+    targetRevision: HEAD
+    path: k8s/native
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default

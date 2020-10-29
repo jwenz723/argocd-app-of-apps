@@ -12,9 +12,9 @@ spec:
     automated:
       prune: true
   source:
-    repoURL: https://github.com/jwenz723/gocolor.git
+    repoURL: https://github.com/jwenz723/argocd-app-of-apps.git
     targetRevision: {{ .Values.spec.source.targetRevision.kustomizeApplication }}
-    path: k8s/kustomize
+    path: kustomize-overlays/account1/cluster1/gocolor
     kustomize:
       nameSuffix: -kustomize
       commonLabels:
