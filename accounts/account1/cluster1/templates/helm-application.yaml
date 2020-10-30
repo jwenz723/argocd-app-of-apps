@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/jwenz723/gocolor.git
     targetRevision: {{ .Values.spec.source.targetRevision.helmApplication }}
-    path: k8s/helm
+    path: k8s/helm/gocolor
     helm:
       parameters:
         - name: gocolorEnv.account
