@@ -9,8 +9,9 @@ gocolorEnvColor: red
 
 spec:
   destination:
-    namespace: $ARGOCD_APP_NAMESPACE
+    namespace: default
     server: https://kubernetes.default.svc
+  project: default
   source:
     targetRevision:
       helmApplication: HEAD
