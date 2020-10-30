@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-jsonnet
+  name: {{ .Values.appOfAppsName }}-gocolor-jsonnet
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

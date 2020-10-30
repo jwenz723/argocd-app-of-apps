@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-native
+  name: {{ .Values.appOfAppsName }}-gocolor-native
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

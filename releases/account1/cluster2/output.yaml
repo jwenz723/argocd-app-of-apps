@@ -4,7 +4,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-helm
+  name: -gocolor-helm
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -34,7 +34,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-jsonnet
+  name: -gocolor-jsonnet
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -69,7 +69,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-kustomize
+  name: -gocolor-kustomize
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -95,7 +95,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gocolor-native
+  name: -gocolor-native
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
