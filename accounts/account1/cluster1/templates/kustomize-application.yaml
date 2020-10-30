@@ -20,5 +20,5 @@ spec:
       commonLabels:
         app.kubernetes.io/name: gocolor-kustomize
   destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}

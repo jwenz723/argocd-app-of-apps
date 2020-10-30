@@ -24,5 +24,5 @@ spec:
         - name: gocolorEnv.region
           value: {{ .Values.region }}
   destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}

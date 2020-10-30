@@ -9,6 +9,7 @@ gocolorEnvColor: red
 
 spec:
   destination:
+    namespace: $ARGOCD_APP_NAMESPACE
     server: https://kubernetes.default.svc
   source:
     targetRevision:
@@ -16,4 +17,3 @@ spec:
       jsonnetApplication: HEAD
       kustomizeApplication: HEAD
       nativeApplication: HEAD
-
