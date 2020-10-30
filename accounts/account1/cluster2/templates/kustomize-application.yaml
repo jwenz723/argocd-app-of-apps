@@ -1,0 +1,24 @@
+# This will load the contents of k8s/helm into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gocolor-kustomize
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.spec.project }}
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/argocd-app-of-apps.git
+    targetRevision: {{ .Values.spec.source.targetRevision.kustomizeApplication }}
+    path: kustomize-overlays/account1/cluster1/gocolor
+    kustomize:
+      nameSuffix: -kustomize
+      commonLabels:
+        app.kubernetes.io/name: gocolor-kustomize
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}

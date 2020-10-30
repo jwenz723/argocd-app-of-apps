@@ -8,9 +8,13 @@ OUTPUT_DIR ?= releases
 OUTPUT_FILE ?= output.yaml
 
 # All clusters that need to be built as a release should be declared here
-build: account1/cluster1
+build: account1/cluster1 account1/cluster2
 
 # Define each unique cluster/release here:
 account1/cluster1: accounts/account1/cluster1
+	mkdir -p ${OUTPUT_DIR}/$@
+	helm template apps $< > ${OUTPUT_DIR}/$@/${OUTPUT_FILE}
+
+account1/cluster2: accounts/account1/cluster2
 	mkdir -p ${OUTPUT_DIR}/$@
 	helm template apps $< > ${OUTPUT_DIR}/$@/${OUTPUT_FILE}
