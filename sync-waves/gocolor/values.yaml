@@ -1,0 +1,14 @@
+# account is the unique name used to identify the account
+account: account1
+
+# region is the name of the region which this chart is deployed into
+region: region1
+
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    targetRevision:
+      helmApplication: HEAD

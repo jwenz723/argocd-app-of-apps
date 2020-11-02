@@ -1,0 +1,30 @@
+# This will load the contents of k8s/helm into argo as an application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+  name: prod-gocolor-helm
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.spec.project }}
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/gocolor.git
+    targetRevision: {{ .Values.spec.source.targetRevision.helmApplication }}
+    path: k8s/helm/gocolor
+    helm:
+      parameters:
+        - name: gocolorEnv.account
+          value: {{ .Values.account }}
+        - name: gocolorEnv.color
+          value: blue
+        - name: gocolorEnv.region
+          value: {{ .Values.region }}
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}

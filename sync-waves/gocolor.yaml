@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    component: app-of-apps
+  name: gocolor
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    repoURL: https://github.com/jwenz723/argocd-app-of-apps.git
+    targetRevision: HEAD
+    path: sync-waves/gocolor
+    helm:
+      parameters:
+        - name: spec.destination.server
+          value: https://kubernetes.default.svc
+        - name: spec.destination.namespace
+          value: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
