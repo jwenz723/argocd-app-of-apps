@@ -25,6 +25,8 @@ spec:
           value: green
         - name: gocolorEnv.region
           value: {{ .Values.region }}
+        - name: image.tag
+          value: {{ .Values.imageTag }}
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: {{ .Values.spec.destination.namespace }}
