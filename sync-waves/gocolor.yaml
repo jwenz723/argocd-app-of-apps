@@ -22,10 +22,6 @@ spec:
           value: https://kubernetes.default.svc
         - name: spec.destination.namespace
           value: default
-        - name: spec.source.targetRevision.helmApplication
-          value: ef6d1e28870840a2f959e9c8c09e9a65efa03d08
-        - name: imageTag
-          value: sha-ef6d1e2
   destination:
     server: https://kubernetes.default.svc
     namespace: default

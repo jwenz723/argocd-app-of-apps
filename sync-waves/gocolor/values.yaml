@@ -2,7 +2,8 @@
 account: account1
 
 # gocolor image tag to be installed
-imageTag: latest
+#sha-c8f4507
+imageTag: sha-ef6d1e2
 
 # region is the name of the region which this chart is deployed into
 region: region1
@@ -14,4 +15,5 @@ spec:
   project: default
   source:
     targetRevision:
-      helmApplication: HEAD
+      #c8f45074879425e4cb786ddb4b0597d687fa24cf
+      helmApplication: ef6d1e28870840a2f959e9c8c09e9a65efa03d08
