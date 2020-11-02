@@ -14,7 +14,7 @@ spec:
       prune: true
   source:
     repoURL: https://github.com/jwenz723/argocd-app-of-apps.git
-    targetRevision: ef6d1e2
+    targetRevision: ef6d1e28870840a2f959e9c8c09e9a65efa03d08
     path: sync-waves/gocolor
     helm:
       parameters:
@@ -23,7 +23,7 @@ spec:
         - name: spec.destination.namespace
           value: default
         - name: imageTag
-          value: ef6d1e2
+          value: sha-ef6d1e2
   destination:
     server: https://kubernetes.default.svc
     namespace: default
