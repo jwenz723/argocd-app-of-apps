@@ -20,7 +20,7 @@ spec:
     helm:
       parameters:
         - name: gocolorEnv.account
-          value: {{ .Values.account }}
+          value: prod
         - name: gocolorEnv.color
           value: blue
         - name: gocolorEnv.region

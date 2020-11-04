@@ -22,6 +22,8 @@ spec:
           value: https://kubernetes.default.svc
         - name: spec.destination.namespace
           value: default
+        - name: imageTag
+          value: sha-c8f4507
   destination:
     server: https://kubernetes.default.svc
     namespace: default
