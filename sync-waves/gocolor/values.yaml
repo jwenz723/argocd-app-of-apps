@@ -1,12 +1,12 @@
 # account is the unique name used to identify the account
-account: account1
+account: account2
 
 # gocolor image tag to be installed
 imageTag: sha-ef6d1e2
 #imageTag: sha-c8f4507
 
 # region is the name of the region which this chart is deployed into
-region: region1
+region: region2
 
 spec:
   destination:
