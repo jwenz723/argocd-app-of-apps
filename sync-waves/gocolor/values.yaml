@@ -15,5 +15,5 @@ spec:
   project: default
   source:
     targetRevision:
-      helmApplication: ef6d1e28870840a2f959e9c8c09e9a65efa03d08
-#      helmApplication: c8f45074879425e4cb786ddb4b0597d687fa24cf
+#      helmApplication: ef6d1e28870840a2f959e9c8c09e9a65efa03d08
+      helmApplication: c8f45074879425e4cb786ddb4b0597d687fa24cf
